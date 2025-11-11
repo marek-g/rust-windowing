@@ -1,0 +1,15 @@
+[package]
+name = "windowing_api"
+version = "0.13.0"
+authors = ["Marek Gibek <marek-dev@yandex.com>"]
+description = "API for windowing system"
+keywords = ["windowing", "gui", "framework", "dialog", "tray"]
+categories = ["gui"]
+license = "GPL-3.0-or-later WITH Classpath-exception-2.0"
+repository = "https://github.com/marek-g/rust-windowing"
+documentation = "https://docs.rs/windowing_api"
+readme = "README.md"
+edition = "2021"
+
+[dependencies]
+bitflags = "2.5"

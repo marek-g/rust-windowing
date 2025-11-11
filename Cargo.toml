@@ -1,0 +1,6 @@
+[workspace]
+resolver = "2"
+members = [
+    "windowing_api",
+    "windowing_qt",
+]
