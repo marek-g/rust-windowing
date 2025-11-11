@@ -1,15 +1,15 @@
 #![windows_subsystem = "windows"]
 
-use fui_system::*;
-use fui_system_core::{
-    CursorShape, Edge, ElementState, Event, MouseButton, Position, TranslucentEffect,
-};
 use rust_embed::RustEmbed;
 use std::cell::RefCell;
 use std::error::Error;
 use std::ptr::null;
 use std::rc::Rc;
 use std::thread;
+use windowing_api::{
+    CursorShape, Edge, ElementState, Event, MouseButton, Position, TranslucentEffect,
+};
+use windowing_qt::*;
 
 #[derive(RustEmbed)]
 #[folder = "assets/"]
