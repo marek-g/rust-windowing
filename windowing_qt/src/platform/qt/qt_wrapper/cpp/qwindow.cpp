@@ -188,6 +188,12 @@ void QWindow_setPaintGLFunc(void *self, void (*func)(void*), void *data)
     window->setPaintGLFunc(func, data);
 }
 
+unsigned int QWindow_defaultFramebufferObject(void *self)
+{
+    QWindowExt *window = static_cast<QWindowExt *>(self);
+    return (unsigned int)window->defaultFramebufferObject();
+}
+
 void *QWindow_context(void *self)
 {
     QWindowExt *window = static_cast<QWindowExt *>(self);

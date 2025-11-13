@@ -224,6 +224,10 @@ impl QWindow {
         }
     }
 
+    pub fn get_default_framebuffer_object(&self) -> u32 {
+        unsafe { crate::platform::qt::qt_wrapper::QWindow_defaultFramebufferObject(self.this) }
+    }
+
     pub fn get_context(&self) -> Result<QOpenGLContext, FUISystemError> {
         unsafe {
             let context_this = crate::platform::qt::qt_wrapper::QWindow_context(self.this);

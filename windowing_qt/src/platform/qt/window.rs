@@ -243,6 +243,10 @@ impl Window {
         let context = self.qwindow.get_context()?;
         context.get_proc_address(proc_name)
     }
+
+    pub fn get_default_framebuffer_id(&self) -> u32 {
+        self.qwindow.get_default_framebuffer_object()
+    }
 }
 
 fn convert_event(ffi_event: &FFIEvent) -> Option<Event> {
