@@ -236,10 +236,7 @@ impl Window {
         self.qwindow.on_paint_gl(callback);
     }
 
-    pub fn get_opengl_proc_address(
-        &self,
-        proc_name: &str,
-    ) -> Result<*const c_void, FUISystemError> {
+    pub fn get_opengl_proc_address(&self, proc_name: &str) -> Result<*mut c_void, FUISystemError> {
         let context = self.qwindow.get_context()?;
         context.get_proc_address(proc_name)
     }

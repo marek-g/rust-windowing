@@ -22,7 +22,7 @@ impl QOpenGLContext {
         }
     }
 
-    pub fn get_proc_address(&self, proc_name: &str) -> Result<*const c_void, FUISystemError> {
+    pub fn get_proc_address(&self, proc_name: &str) -> Result<*mut c_void, FUISystemError> {
         unsafe {
             let c_str = CString::new(proc_name).map_err(|_| {
                 FUISystemError::OsError("Null error for OpenGL procedure address.".to_string())
@@ -32,7 +32,7 @@ impl QOpenGLContext {
                 c_str.as_ptr(),
             );
             if let Some(addr) = addr {
-                Ok(addr as *const c_void)
+                Ok(addr as *mut c_void)
             } else {
                 Err(FUISystemError::OsError(format!(
                     "Cannot find OpenGL procedure address: {}",
