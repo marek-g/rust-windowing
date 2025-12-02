@@ -95,7 +95,7 @@ impl FFIEvent {
     #[no_mangle]
     pub extern "C" fn free_ffi_event(event: *mut FFIEvent) {
         unsafe {
-            Box::from_raw(event);
+            drop(Box::from_raw(event));
         }
     }
 }

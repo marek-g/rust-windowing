@@ -93,7 +93,7 @@ where
 
 pub extern "C" fn drop_callback_pointer<T>(callback_pointer: *mut c_void) {
     unsafe {
-        Box::from_raw(callback_pointer as *mut T);
+        drop(Box::from_raw(callback_pointer as *mut T));
     }
 }
 
