@@ -27,7 +27,7 @@ impl Application {
 
         QSurfaceFormat::set_default(options.opengl_stencil_bits);
 
-        let qapp = QApplication::new()?;
+        let qapp = QApplication::new(&options)?;
         Ok(Self { _qapp: qapp })
     }
 

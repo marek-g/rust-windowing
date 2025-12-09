@@ -6,6 +6,8 @@ pub struct ApplicationOptions {
 
     pub opengl_share_contexts: bool,
     pub opengl_stencil_bits: i32,
+
+    pub force_xwayland: bool,
 }
 
 impl Default for ApplicationOptions {
@@ -23,6 +25,7 @@ impl ApplicationOptions {
             title: "".to_string(),
             opengl_share_contexts: false,
             opengl_stencil_bits: 0,
+            force_xwayland: false,
         }
     }
 
@@ -48,6 +51,14 @@ impl ApplicationOptions {
     ///
     pub fn with_opengl_stencil_bits(mut self, bits: i32) -> Self {
         self.opengl_stencil_bits = bits;
+        self
+    }
+
+    ///
+    /// Forces the window to be opened on XWayland (xcb) under Wayland.
+    ///
+    pub fn force_xwayland(mut self, force: bool) -> Self {
+        self.force_xwayland = force;
         self
     }
 }

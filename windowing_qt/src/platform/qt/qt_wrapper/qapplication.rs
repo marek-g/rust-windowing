@@ -1,6 +1,6 @@
 use crate::common::callback_helper::RawCallback;
 use crate::platform::qt::qt_wrapper::QString;
-use crate::FUISystemError;
+use crate::{ApplicationOptions, FUISystemError};
 use std::ffi::CString;
 use std::os::raw::c_char;
 
@@ -21,16 +21,16 @@ pub struct QApplication {
 }
 
 impl QApplication {
-    pub fn new() -> Result<Self, FUISystemError> {
+    pub fn new(options: &ApplicationOptions) -> Result<Self, FUISystemError> {
         unsafe {
             // convert args() to argc, argv
             let mut args = std::env::args()
                 .map(|arg| CString::new(arg).unwrap())
                 .collect::<Vec<CString>>();
 
-            // run fui apps in XWayland because of transparency glitches
-            // see: wayland.md
+            // run fui apps in XWayland
             if cfg!(target_family = "unix")
+                && options.force_xwayland
                 && std::env::args().find(|el| el == "--platform").is_none()
             {
                 args.push(CString::new("--platform").unwrap());
