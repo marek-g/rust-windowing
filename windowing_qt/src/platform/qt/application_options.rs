@@ -57,7 +57,7 @@ impl ApplicationOptions {
     ///
     /// Forces the window to be opened on XWayland (xcb) under Wayland.
     ///
-    pub fn force_xwayland(mut self, force: bool) -> Self {
+    pub fn with_force_xwayland(mut self, force: bool) -> Self {
         self.force_xwayland = force;
         self
     }
