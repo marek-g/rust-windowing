@@ -25,7 +25,7 @@ impl Application {
             options.opengl_share_contexts,
         );
 
-        QSurfaceFormat::set_default(options.opengl_stencil_bits);
+        QSurfaceFormat::set_default(options.opengl_stencil_bits, options.opengl_depth_bits);
 
         let qapp = QApplication::new(&options)?;
         Ok(Self { _qapp: qapp })

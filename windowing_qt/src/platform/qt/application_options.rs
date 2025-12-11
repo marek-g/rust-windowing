@@ -6,6 +6,7 @@ pub struct ApplicationOptions {
 
     pub opengl_share_contexts: bool,
     pub opengl_stencil_bits: i32,
+    pub opengl_depth_bits: i32,
 
     pub force_xwayland: bool,
 }
@@ -25,6 +26,7 @@ impl ApplicationOptions {
             title: "".to_string(),
             opengl_share_contexts: false,
             opengl_stencil_bits: 0,
+            opengl_depth_bits: 0,
             force_xwayland: false,
         }
     }
@@ -51,6 +53,15 @@ impl ApplicationOptions {
     ///
     pub fn with_opengl_stencil_bits(mut self, bits: i32) -> Self {
         self.opengl_stencil_bits = bits;
+        self
+    }
+
+    ///
+    /// Sets bits of the the depth buffer.
+    /// 0 - disables depth buffer, 24 - standard depth buffer.
+    ///
+    pub fn with_opengl_depth_bits(mut self, bits: i32) -> Self {
+        self.opengl_depth_bits = bits;
         self
     }
 

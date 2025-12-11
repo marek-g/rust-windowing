@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-void QSurfaceFormat_setDefault(int stencilBufferSize);
+  void QSurfaceFormat_setDefault(int stencilBufferSize, int depthBufferSize);
 
 #ifdef __cplusplus
 }
