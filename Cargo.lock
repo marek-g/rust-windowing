@@ -858,7 +858,7 @@ dependencies = [
 
 [[package]]
 name = "windowing_qt"
-version = "0.17.1"
+version = "0.17.3"
 dependencies = [
  "bindgen",
  "cbindgen",

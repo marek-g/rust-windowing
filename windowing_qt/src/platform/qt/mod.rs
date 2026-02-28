@@ -11,7 +11,7 @@ mod qt_wrapper;
 
 pub use application::Application;
 pub use application_options::ApplicationOptions;
-pub use clipboard::Clipboard;
+pub use clipboard::{Clipboard, ClipboardMode};
 pub use dispatcher::Dispatcher;
 pub use file_dialog::*;
 pub use icon::Icon;
