@@ -3,6 +3,8 @@ use crate::platform::qt::qt_wrapper::{QApplication, QString, QSurfaceFormat};
 use crate::platform::ApplicationOptions;
 use crate::{Dispatcher, FUISystemError};
 
+use super::Clipboard;
+
 ///
 /// The application.
 /// Manages application control flow.
@@ -67,5 +69,12 @@ impl Application {
         F: FnOnce() + 'static + Send,
     {
         QApplication::post_func_any_thread(func);
+    }
+
+    /// Returns the object for interacting with the clipboard.
+    pub fn clipboard() -> Clipboard {
+        Clipboard {
+            qclipboard: QApplication::clipboard(),
+        }
     }
 }

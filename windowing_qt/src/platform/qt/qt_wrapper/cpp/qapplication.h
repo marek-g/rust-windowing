@@ -19,6 +19,8 @@ void QApplication_postFunc(void (*callback_trampoline)(void*), void *callback_da
 
 void QApplication_aboutQt();
 
+void* QApplication_clipboard();
+
 #ifdef __cplusplus
 }
 #endif

@@ -15,6 +15,7 @@ qt_add_library(qt_wrapper STATIC
     qaction.cpp
     qapplication.cpp
     qbytearray.cpp
+	qclipboard.cpp
     qfiledialog.cpp
     qicon.cpp qmenu.cpp
     qopenglcontext.cpp

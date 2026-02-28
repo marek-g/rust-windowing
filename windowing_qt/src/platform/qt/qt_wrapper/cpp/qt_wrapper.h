@@ -1,6 +1,7 @@
 #include "qaction.h"
 #include "qapplication.h"
 #include "qbytearray.h"
+#include "qclipboard.h"
 #include "qfiledialog.h"
 #include "qicon.h"
 #include "qmenu.h"

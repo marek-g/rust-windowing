@@ -4,6 +4,8 @@ use crate::{ApplicationOptions, FUISystemError};
 use std::ffi::CString;
 use std::os::raw::c_char;
 
+use super::QClipboard;
+
 pub enum QApplicationAttribute {
     ShareOpenGLContexts,
 }
@@ -127,6 +129,14 @@ impl QApplication {
     pub fn about_qt() {
         unsafe {
             crate::platform::qt::qt_wrapper::QApplication_aboutQt();
+        }
+    }
+
+    pub fn clipboard() -> QClipboard {
+        unsafe {
+            QClipboard {
+                this: crate::platform::qt::qt_wrapper::QApplication_clipboard(),
+            }
         }
     }
 }
