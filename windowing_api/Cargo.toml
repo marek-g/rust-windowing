@@ -1,6 +1,6 @@
 [package]
 name = "windowing_api"
-version = "0.13.0"
+version = "0.13.1"
 authors = ["Marek Gibek <marek-dev@yandex.com>"]
 description = "API for windowing system"
 keywords = ["windowing", "gui", "framework", "dialog", "tray"]

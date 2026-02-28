@@ -312,6 +312,7 @@ fn convert_delta(delta: &FFIScrollDelta) -> ScrollDelta {
 
 fn convert_keycode(keycode: i32, _modifiers: &FFIKeyModifiers) -> Option<Keycode> {
     match keycode {
+        // function row
         0x01000000 => Some(Keycode::Esc),
         0x01000030 => Some(Keycode::F1),
         0x01000031 => Some(Keycode::F2),
@@ -325,30 +326,106 @@ fn convert_keycode(keycode: i32, _modifiers: &FFIKeyModifiers) -> Option<Keycode
         0x01000039 => Some(Keycode::F10),
         0x0100003a => Some(Keycode::F11),
         0x0100003b => Some(Keycode::F12),
+        0x0100003c => Some(Keycode::F13),
+        0x0100003d => Some(Keycode::F14),
+        0x0100003e => Some(Keycode::F15),
+        0x0100003f => Some(Keycode::F16),
+        0x01000040 => Some(Keycode::F17),
+        0x01000041 => Some(Keycode::F18),
+        0x01000042 => Some(Keycode::F19),
+        0x01000043 => Some(Keycode::F20),
         0x01000009 => Some(Keycode::PrintScreen),
         0x01000026 => Some(Keycode::ScrollLock),
         0x01000008 => Some(Keycode::Pause),
+
+        // navigation
         0x01000006 => Some(Keycode::Insert),
         0x01000007 => Some(Keycode::Delete),
         0x01000010 => Some(Keycode::Home),
         0x01000011 => Some(Keycode::End),
         0x01000016 => Some(Keycode::PageUp),
         0x01000017 => Some(Keycode::PageDown),
+
+        // arrows
         0x01000012 => Some(Keycode::Left),
         0x01000014 => Some(Keycode::Right),
         0x01000013 => Some(Keycode::Up),
         0x01000015 => Some(Keycode::Down),
+
+        // modifiers
+        0x01000020 => Some(Keycode::Shift),
+        0x01000021 => Some(Keycode::Ctrl),
+        0x01000022 => Some(Keycode::Win),
+        0x01000023 => Some(Keycode::Alt),
+        0x01001103 => Some(Keycode::AltGr),
+
+        // special
+        0x01000055 => Some(Keycode::Menu),
         0x01000003 => Some(Keycode::Backspace),
         0x01000001 => Some(Keycode::Tab),
         0x01000024 => Some(Keycode::CapsLock),
-        0x01000004 => Some(Keycode::Enter),
+        0x01000004 => Some(Keycode::Return),
         0x01000005 => Some(Keycode::Enter),
-        0x01000020 => Some(Keycode::Shift),
-        0x01000021 => Some(Keycode::Ctrl),
-        0x01000023 => Some(Keycode::Alt),
-        0x01001103 => Some(Keycode::Alt),
-        0x01000022 => Some(Keycode::Win),
+        0x00000020 => Some(Keycode::Space),
+
+        // symbols
+        0x00000060 => Some(Keycode::QuoteLeft),
+        0x0000002d => Some(Keycode::Minus),
+        0x0000003d => Some(Keycode::Equal),
+        0x0000002a => Some(Keycode::Asterisk),
+        0x0000002b => Some(Keycode::Plus),
+        0x0000002e => Some(Keycode::Period),
+        0x0000002f => Some(Keycode::Slash),
+        0x0000005b => Some(Keycode::BracketLeft),
+        0x0000005d => Some(Keycode::BracketRight),
+        0x0000005c => Some(Keycode::Backslash),
+        0x0000003b => Some(Keycode::Semicolon),
+        0x00000022 => Some(Keycode::Quote),
+        0x0000002c => Some(Keycode::Comma),
+
+        // letters
+        0x00000041 => Some(Keycode::KeyA),
+        0x00000042 => Some(Keycode::KeyB),
+        0x00000043 => Some(Keycode::KeyC),
+        0x00000044 => Some(Keycode::KeyD),
+        0x00000045 => Some(Keycode::KeyE),
+        0x00000046 => Some(Keycode::KeyF),
+        0x00000047 => Some(Keycode::KeyG),
+        0x00000048 => Some(Keycode::KeyH),
+        0x00000049 => Some(Keycode::KeyI),
+        0x0000004a => Some(Keycode::KeyJ),
+        0x0000004b => Some(Keycode::KeyK),
+        0x0000004c => Some(Keycode::KeyL),
+        0x0000004d => Some(Keycode::KeyM),
+        0x0000004e => Some(Keycode::KeyN),
+        0x0000004f => Some(Keycode::KeyO),
+        0x00000050 => Some(Keycode::KeyP),
+        0x00000051 => Some(Keycode::KeyQ),
+        0x00000052 => Some(Keycode::KeyR),
+        0x00000053 => Some(Keycode::KeyS),
+        0x00000054 => Some(Keycode::KeyT),
+        0x00000055 => Some(Keycode::KeyU),
+        0x00000056 => Some(Keycode::KeyV),
+        0x00000057 => Some(Keycode::KeyW),
+        0x00000058 => Some(Keycode::KeyX),
+        0x00000059 => Some(Keycode::KeyY),
+        0x0000005a => Some(Keycode::KeyZ),
+
+        // digits
+        0x00000030 => Some(Keycode::Key0),
+        0x00000031 => Some(Keycode::Key1),
+        0x00000032 => Some(Keycode::Key2),
+        0x00000033 => Some(Keycode::Key3),
+        0x00000034 => Some(Keycode::Key4),
+        0x00000035 => Some(Keycode::Key5),
+        0x00000036 => Some(Keycode::Key6),
+        0x00000037 => Some(Keycode::Key7),
+        0x00000038 => Some(Keycode::Key8),
+        0x00000039 => Some(Keycode::Key9),
+
+        // numeric keyboard
         0x01000025 => Some(Keycode::NumLock),
+
         _ => None,
     }
 }

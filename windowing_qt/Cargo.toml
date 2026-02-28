@@ -1,6 +1,6 @@
 [package]
 name = "windowing_qt"
-version = "0.17.0"
+version = "0.17.1"
 authors = ["Marek Gibek <marek-dev@yandex.com>"]
 description = "Implementation of windowing_api using QT Framework"
 keywords = ["windowing", "gui", "framework", "dialog", "tray"]
