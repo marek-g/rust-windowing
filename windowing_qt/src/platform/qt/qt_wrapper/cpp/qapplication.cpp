@@ -96,5 +96,5 @@ void QApplication_aboutQt()
 }
 
 void* QApplication_clipboard() {
-    QApplication::clipboard();
+    return QApplication::clipboard();
 }
