@@ -3,7 +3,7 @@
 use rust_embed::RustEmbed;
 use std::cell::RefCell;
 use std::error::Error;
-use std::ptr::null;
+use std::ptr::null_mut;
 use std::rc::Rc;
 use windowing_api::{ElementState, Event, MouseButton, Position, TranslucentEffect};
 use windowing_qt::*;
@@ -57,7 +57,7 @@ fn create_new_window(windows: Rc<RefCell<Vec<Rc<RefCell<Window>>>>>) -> Rc<RefCe
                             window_rc
                                 .borrow()
                                 .get_opengl_proc_address(s)
-                                .unwrap_or_else(|_| null())
+                                .unwrap_or_else(|_| null_mut())
                         });
                     }
                     initialized = true;
@@ -138,7 +138,7 @@ fn create_new_popup_window(parent_window_rc: Rc<RefCell<Window>>) -> Rc<RefCell<
                             window_rc
                                 .borrow()
                                 .get_opengl_proc_address(s)
-                                .unwrap_or_else(|_| null())
+                                .unwrap_or_else(|_| null_mut())
                         });
                     }
                     initialized = true;

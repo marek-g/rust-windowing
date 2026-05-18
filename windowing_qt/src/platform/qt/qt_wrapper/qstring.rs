@@ -25,7 +25,7 @@ impl QString {
     pub fn from_str(text: &str) -> Result<Self, FUISystemError> {
         unsafe {
             let this = crate::platform::qt::qt_wrapper::QString_fromUtf8(
-                text.as_ptr() as *const i8,
+                text.as_ptr() as *const u8,
                 text.len() as i32,
             );
             if this.is_null() {

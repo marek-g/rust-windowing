@@ -3,7 +3,7 @@
 use rust_embed::RustEmbed;
 use std::cell::RefCell;
 use std::error::Error;
-use std::ptr::null;
+use std::ptr::null_mut;
 use std::rc::Rc;
 use std::thread;
 use windowing_api::{
@@ -136,7 +136,7 @@ fn create_new_window() -> Rc<RefCell<Window>> {
                             window_rc
                                 .borrow()
                                 .get_opengl_proc_address(s)
-                                .unwrap_or_else(|_| null())
+                                .unwrap_or_else(|_| null_mut())
                         });
                     }
                     initialized = true;

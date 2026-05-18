@@ -3,7 +3,7 @@ use crate::platform::qt::qt_wrapper::{
     QString, QWindow,
 };
 use crate::{FUISystemError, Icon};
-use std::ffi::{c_void, CStr};
+use std::ffi::{CStr, c_char, c_void};
 use windowing_api::{
     CursorShape, Edge, ElementState, Event, KeyModifiers, Keycode, MouseButton, Position,
     ScrollDelta, TranslucentEffect, WindowFrameType,
@@ -441,7 +441,7 @@ fn convert_modifiers(keycode: i32, modifiers: &FFIKeyModifiers) -> KeyModifiers 
     }
 }
 
-fn convert_text(text: *const i8) -> Option<String> {
+fn convert_text(text: *const c_char) -> Option<String> {
     if text.is_null() {
         None
     } else {
