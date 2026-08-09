@@ -46,7 +46,7 @@ impl QApplication {
 
             let this = crate::platform::qt::qt_wrapper::QApplication_new(
                 c_args.len() as i32,
-                c_args.as_ptr() as *mut *const u8,
+                c_args.as_ptr() as *mut *const c_char,
             );
             if this.is_null() {
                 return Err(FUISystemError::OutOfMemory);
